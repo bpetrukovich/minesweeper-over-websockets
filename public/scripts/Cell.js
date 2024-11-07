@@ -1,5 +1,5 @@
-import { CellView } from './CellView.js'
-import { ws } from "./ws.js"
+import { CellView } from "./CellView.js";
+import { ws } from "./ws.js";
 
 export class Cell {
   hovered = false;
@@ -17,7 +17,7 @@ export class Cell {
   }
 
   createView(p5, y, x, size, flagImg) {
-    this.view = new CellView(p5, y, x, size, this.neighbors, flagImg)
+    this.view = new CellView(p5, y, x, size, this.neighbors, flagImg);
   }
 
   update(data) {
@@ -28,7 +28,7 @@ export class Cell {
 
   draw() {
     if (this.isFlag) {
-      this.view.drawFlag()
+      this.view.drawFlag();
       return;
     }
     if (this.isActive) {
@@ -53,18 +53,17 @@ export class Cell {
       coords: {
         y: this.i,
         x: this.j,
-      }
-    }
+      },
+    };
 
-    ws.send(JSON.stringify(data))
+    ws.send(JSON.stringify(data));
   }
 
   tap() {
     if (this.isActive && !this.isFlag) {
-      this.click()
-    }
-    else {
-      this.toggleFlag()
+      this.click();
+    } else {
+      this.toggleFlag();
     }
   }
 
@@ -77,22 +76,22 @@ export class Cell {
       coords: {
         y: this.i,
         x: this.j,
-      }
-    }
-    ws.send(JSON.stringify(data))
-    console.log(data)
+      },
+    };
+    ws.send(JSON.stringify(data));
+    console.log(data);
 
     this.isFlag = !this.isFlag;
-    this.draw()
+    this.draw();
   }
 
   press() {
     this.pressed = true;
-    this.draw()
+    this.draw();
   }
 
   unpress() {
     this.pressed = false;
-    this.draw()
+    this.draw();
   }
 }

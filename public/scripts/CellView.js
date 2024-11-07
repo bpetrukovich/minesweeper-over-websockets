@@ -6,7 +6,7 @@ export class CellView {
     this.y = y;
     this.size = size;
     this.value = value;
-    this.flagImg = flagImg
+    this.flagImg = flagImg;
 
     const COLORS = [
       p5.color(0),
@@ -18,27 +18,27 @@ export class CellView {
       p5.color(3, 110, 189),
       p5.color(2, 2, 2),
       p5.color(128, 128, 128),
-    ]
+    ];
 
-    this.color = COLORS[value]
+    this.color = COLORS[value];
   }
 
   drawHover() {
-    this.p5.fill(150)
+    this.p5.fill(150);
     this.p5.strokeWeight(4);
     this.p5.stroke(100);
     this.p5.square(this.x, this.y, this.size);
   }
 
   drawInactive() {
-    this.p5.fill(220)
+    this.p5.fill(220);
     this.p5.strokeWeight(4);
     this.p5.stroke(100);
     this.p5.square(this.x, this.y, this.size);
   }
 
   drawActive() {
-    this.p5.fill(150)
+    this.p5.fill(150);
     this.p5.strokeWeight(4);
     this.p5.stroke(100);
     this.p5.square(this.x, this.y, this.size);
@@ -46,20 +46,26 @@ export class CellView {
       return;
     }
     this.p5.textSize(30);
-    this.p5.textStyle(this.p5.BOLD)
-    this.p5.textFont('Courier New');
-    this.p5.fill(this.color)
+    this.p5.textStyle(this.p5.BOLD);
+    this.p5.textFont("Courier New");
+    this.p5.fill(this.color);
     this.p5.textAlign(this.p5.CENTER, this.p5.CENTER);
     this.p5.noStroke();
     this.p5.text(this.value, this.x + this.size / 2, this.y + this.size / 2);
   }
 
   drawFlag() {
-    this.p5.fill(220)
+    this.p5.fill(220);
     this.p5.strokeWeight(4);
     this.p5.stroke(100);
     this.p5.square(this.x, this.y, this.size);
     this.p5.imageMode(this.p5.CENTER);
-    this.p5.image(this.flagImg, this.x + this.size / 2, this.y + this.size / 2, this.size / 1.5, this.size / 1.5)
+    this.p5.image(
+      this.flagImg,
+      this.x + this.size / 2,
+      this.y + this.size / 2,
+      this.size / 1.5,
+      this.size / 1.5,
+    );
   }
 }
